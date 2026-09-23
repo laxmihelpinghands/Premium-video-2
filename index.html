@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Full Video on Telegram • Join Now</title>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1754076815851857');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1754076815851857&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --blue-500: #3b82f6;
+      --blue-600: #2563eb;
+      --blue-700: #1d4ed8;
+      --telegram: #229ED9;
+      --telegram-dark: #1a86ba;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #05070d;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+      position: relative;
+      overflow-x: hidden;
+      color: #ffffff;
+    }
+
+    /* Animated gradient background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: 
+        radial-gradient(circle at 15% 20%, rgba(59, 130, 246, 0.18), transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(34, 158, 217, 0.15), transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.08), transparent 60%);
+      z-index: 0;
+      animation: bgShift 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes bgShift {
+      0% { transform: scale(1) translate(0, 0); }
+      100% { transform: scale(1.15) translate(-2%, -2%); }
+    }
+
+    /* Floating particles */
+    .particles {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(96, 165, 250, 0.5);
+      border-radius: 50%;
+      animation: floatUp linear infinite;
+      box-shadow: 0 0 10px rgba(96, 165, 250, 0.8);
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(0); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100px) scale(1); opacity: 0; }
+    }
+
+    .card {
+      position: relative;
+      z-index: 10;
+      max-width: 430px;
+      width: 100%;
+      background: linear-gradient(160deg, rgba(24, 30, 45, 0.95), rgba(13, 17, 27, 0.98));
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 32px;
+      padding: 26px 22px 28px;
+      box-shadow: 
+        0 40px 80px -30px rgba(0, 0, 0, 0.9),
+        0 0 0 1px rgba(255, 255, 255, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      text-align: center;
+      animation: fadeInUp 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+      overflow: hidden;
+    }
+
+    /* Top shine line */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.7), transparent);
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(24px) scale(0.98); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* ===== Profile Section ===== */
+    .profile-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .profile-ring {
+      position: relative;
+      display: inline-flex;
+      padding: 3px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, #3b82f6, #229ED9, #6366f1, #3b82f6);
+      animation: rotateRing 4s linear infinite;
+      margin-bottom: 12px;
+    }
+
+    @keyframes rotateRing {
+      to { transform: rotate(360deg); }
+    }
+
+    .profile-ring::after {
+      content: '';
+      position: absolute;
+      inset: 3px;
+      border-radius: 50%;
+      background: #0d1119;
+      z-index: 0;
+    }
+
+    .profile-pic {
+      position: relative;
+      z-index: 1;
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      background: #1e2638;
+    }
+
+    /* Live online indicator */
+    .online-dot {
+      position: absolute;
+      bottom: 4px;
+      right: 4px;
+      z-index: 2;
+      width: 18px;
+      height: 18px;
+      background: #22c55e;
+      border-radius: 50%;
+      border: 3px solid #0d1119;
+      box-shadow: 0 0 12px rgba(34, 197, 94, 0.8);
+      animation: pulseDot 2s infinite;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+      50% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+    }
+
+    .channel-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .verified-badge {
+      color: var(--telegram);
+      font-size: 1rem;
+    }
+
+    .member-count {
+      font-size: 0.78rem;
+      color: #7d8aa3;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: 500;
+    }
+
+    .member-count i {
+      color: #22c55e;
+      font-size: 0.55rem;
+    }
+
+    /* ===== Video Preview ===== */
+    .video-preview {
+      position: relative;
+      margin: 18px 0 22px;
+      border-radius: 22px;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      background: #0f131e;
+      box-shadow: 
+        0 24px 40px -18px rgba(0, 0, 0, 0.9),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+      cursor: pointer;
+      transition: transform 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .video-preview:hover {
+      transform: translateY(-3px) scale(1.01);
+    }
+
+    .video-preview:active {
+      transform: scale(0.98);
+    }
+
+    .video-placeholder {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(145deg, #1b2333, #0e121c);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #a0aec0;
+    }
+
+    .blur-overlay {
+      position: absolute;
+      inset: 0;
+      backdrop-filter: blur(16px) brightness(0.6);
+      -webkit-backdrop-filter: blur(16px) brightness(0.6);
+      background: radial-gradient(circle at center, rgba(37, 99, 235, 0.25), rgba(10, 12, 18, 0.6));
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .lock-icon {
+      font-size: 1.7rem;
+      color: #ffffff;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, rgba(37, 99, 235, 0.9), rgba(29, 78, 216, 0.9));
+      border: 2px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 12px 24px -6px rgba(37, 99, 235, 0.7);
+      transition: transform 0.25s ease;
+    }
+
+    .video-preview:hover .lock-icon {
+      transform: scale(1.1) rotate(-8deg);
+    }
+
+    .lock-label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #ffffff;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    }
+
+    .click-hint {
+      font-size: 0.68rem;
+      color: #ffffff;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 6px 16px -4px rgba(37, 99, 235, 0.7);
+      animation: pulseHint 1.8s ease-in-out infinite;
+    }
+
+    @keyframes pulseHint {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    /* Duration badge */
+    .duration-badge {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      z-index: 3;
+      background: rgba(0, 0, 0, 0.75);
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 9px;
+      border-radius: 8px;
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    /* ===== Headline ===== */
+    .headline {
+      font-size: 1.65rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 10px;
+      letter-spacing: -0.035em;
+      color: #ffffff;
+    }
+
+    .headline .accent {
+      background: linear-gradient(135deg, #229ED9, #60a5fa);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      position: relative;
+      display: inline-block;
+    }
+
+    .headline .emoji {
+      display: inline-block;
+      animation: bounceEmoji 2s ease-in-out infinite;
+    }
+
+    @keyframes bounceEmoji {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    .subtext {
+      font-size: 0.9rem;
+      color: #98a4bd;
+      margin-bottom: 20px;
+      line-height: 1.55;
+      font-weight: 500;
+      padding: 0 4px;
+    }
+
+    .subtext strong {
+      color: #dbeafe;
+      font-weight: 700;
+    }
+
+    /* ===== Timer Box ===== */
+    .timer-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(220, 38, 38, 0.08));
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      border-radius: 14px;
+      padding: 11px 16px;
+      margin-bottom: 16px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timer-box::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #ef4444, #f87171);
+      animation: timerBar 15s linear forwards;
+    }
+
+    @keyframes timerBar {
+      from { width: 100%; }
+      to { width: 0%; }
+    }
+
+    .timer-box i {
+      color: #ef4444;
+      font-size: 1rem;
+      animation: tickPulse 1s infinite;
+    }
+
+    @keyframes tickPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.15); }
+    }
+
+    .timer-text {
+      font-size: 0.85rem;
+      color: #fca5a5;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .timer-count {
+      font-weight: 800;
+      color: #ef4444;
+      font-size: 1.05rem;
+      font-variant-numeric: tabular-nums;
+      min-width: 26px;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .timer-box.expired {
+      background: linear-gradient(135deg, rgba(107, 114, 128, 0.15), rgba(75, 85, 99, 0.08));
+      border-color: rgba(107, 114, 128, 0.4);
+      animation: shakeBox 0.4s ease;
+    }
+
+    .timer-box.expired::before {
+      display: none;
+    }
+
+    .timer-box.expired i,
+    .timer-box.expired .timer-count {
+      color: #9ca3af;
+      animation: none;
+    }
+
+    .timer-box.expired .timer-text {
+      color: #9ca3af;
+    }
+
+    @keyframes shakeBox {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+
+    /* ===== Telegram Button ===== */
+    .tg-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      background: linear-gradient(135deg, #229ED9, #1a86ba);
+      border: none;
+      border-radius: 60px;
+      padding: 17px 24px;
+      width: 100%;
+      font-size: 1.13rem;
+      font-weight: 800;
+      color: #ffffff;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+      cursor: pointer;
+      margin-bottom: 14px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      box-shadow: 
+        0 16px 32px -10px rgba(34, 158, 217, 0.7),
+        0 0 0 1px rgba(255, 255, 255, 0.15) inset,
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+      animation: btnPulse 2.4s ease-in-out infinite;
+    }
+
+    @keyframes btnPulse {
+      0%, 100% { box-shadow: 0 16px 32px -10px rgba(34, 158, 217, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.15) inset, inset 0 1px 0 rgba(255, 255, 255, 0.25); }
+      50% { box-shadow: 0 20px 42px -8px rgba(34, 158, 217, 1), 0 0 0 1px rgba(255, 255, 255, 0.25) inset, inset 0 1px 0 rgba(255, 255, 255, 0.35); }
+    }
+
+    .tg-btn i {
+      font-size: 1.45rem;
+      transition: transform 0.25s ease;
+    }
+
+    .tg-btn:hover {
+      transform: translateY(-2px) scale(1.015);
+    }
+
+    .tg-btn:hover i {
+      transform: translateX(4px) rotate(-8deg);
+    }
+
+    .tg-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* Shine sweep */
+    .tg-btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.7s ease;
+    }
+
+    .tg-btn:hover::after {
+      transform: translateX(100%);
+    }
+
+    /* Trust badges */
+    .trust-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.7rem;
+      color: #6e7b94;
+      font-weight: 600;
+    }
+
+    .trust-item i {
+      color: #22c55e;
+      font-size: 0.72rem;
+    }
+
+    @media (max-width: 380px) {
+      .card {
+        padding: 22px 16px 24px;
+        border-radius: 26px;
+      }
+      .headline {
+        font-size: 1.45rem;
+      }
+      .tg-btn {
+        font-size: 1.05rem;
+        padding: 15px 20px;
+      }
+      .profile-pic {
+        width: 74px;
+        height: 74px;
+      }
+      .timer-text {
+        font-size: 0.78rem;
+      }
+      .trust-row {
+        gap: 10px;
+      }
+      .trust-item {
+        font-size: 0.65rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="particles" id="particles"></div>
+
+  <div class="card">
+    <!-- Profile Section with rotating ring + online dot -->
+    <div class="profile-section">
+      <div class="profile-ring">
+        <img 
+          class="profile-pic" 
+          src="https://iili.io/nuvh11t.jpg" 
+          alt="Profile photo"
+          loading="eager"
+          onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2248%22 fill=%22%23229ED9%22 /%3E%3Ctext x=%2250%22 y=%2268%22 font-size=%2248%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Arial%22%3ET%3C/text%3E%3C/svg%3E'"
+        >
+        <span class="online-dot"></span>
+      </div>
+      <div class="channel-name">
+        <i class="fas fa-crown" style="color: #fbbf24; font-size: 0.95rem;"></i>
+        Premium Video
+        <i class="fas fa-check-circle verified-badge"></i>
+      </div>
+      <div class="member-count">
+        <i class="fas fa-circle"></i> 12,847 members online
+      </div>
+    </div>
+
+    <!-- Clickable locked video preview -->
+    <div class="video-preview" id="lockedPreview" role="button" tabindex="0" aria-label="Click to unlock video on Telegram">
+      <div class="video-placeholder">
+        <i class="fas fa-film" style="font-size: 3rem; opacity: 0.25;"></i>
+      </div>
+      <div class="blur-overlay">
+        <div class="lock-icon">
+          <i class="fas fa-lock"></i>
+        </div>
+        <div class="lock-label">Exclusive Video Locked</div>
+        <div class="click-hint">
+          <i class="fas fa-hand-pointer"></i> Tap to unlock
+        </div>
+      </div>
+      <div class="duration-badge">
+        <i class="fas fa-play"></i> 12:34
+      </div>
+    </div>
+
+    <!-- Headline -->
+    <h1 class="headline">
+      <span class="emoji">🎬</span> Full Video <span class="accent">Telegram</span> Pe Hai
+    </h1>
+    <p class="subtext">
+      Ye exclusive video sirf hamare <strong>Telegram channel</strong> pe available hai. 
+      Neeche button dabao aur <strong>free me full video</strong> dekho — turant unlock!
+    </p>
+
+    <!-- Countdown Timer -->
+    <div class="timer-box" id="timerBox">
+      <i class="fas fa-hourglass-half"></i>
+      <div class="timer-text">
+        Link expires in <span class="timer-count" id="timerCount">15</span> seconds
+      </div>
+    </div>
+
+    <!-- Telegram Join Button -->
+    <a 
+      href="https://t.me/+wXbDNG0MbgRkZDVl" 
+      class="tg-btn" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      id="telegramJoinBtn"
+    >
+      <i class="fab fa-telegram-plane"></i> Join Telegram
+    </a>
+
+    <!-- Trust badges -->
+    <div class="trust-row">
+      <div class="trust-item"><i class="fas fa-shield-alt"></i> 100% Safe</div>
+      <div class="trust-item"><i class="fas fa-bolt"></i> Instant Access</div>
+      <div class="trust-item"><i class="fas fa-gift"></i> Free</div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const TELEGRAM_URL = 'https://t.me/+wXbDNG0MbgRkZDVl';
+      const joinBtn = document.getElementById('telegramJoinBtn');
+      const lockedPreview = document.getElementById('lockedPreview');
+      const timerBox = document.getElementById('timerBox');
+      const timerCount = document.getElementById('timerCount');
+
+      // ---------- Floating particles ----------
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 18;
+      for (let i = 0; i < particleCount; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.style.left = Math.random() * 100 + '%';
+        p.style.animationDuration = (8 + Math.random() * 10) + 's';
+        p.style.animationDelay = (Math.random() * 8) + 's';
+        p.style.opacity = 0.3 + Math.random() * 0.5;
+        const size = 2 + Math.random() * 3;
+        p.style.width = size + 'px';
+        p.style.height = size + 'px';
+        particlesContainer.appendChild(p);
+      }
+
+      // ---------- Join Button: fire Lead event ----------
+      joinBtn.addEventListener('click', function() {
+        if (typeof fbq === 'function') {
+          fbq('track', 'Lead', {
+            content_name: 'Telegram Join',
+            content_category: 'Video Unlock'
+          });
+        }
+      });
+
+      // ---------- Locked preview click → open Telegram + Lead ----------
+      lockedPreview.addEventListener('click', function() {
+        if (typeof fbq === 'function') {
+          fbq('track', 'Lead', {
+            content_name: 'Locked Preview Click',
+            content_category: 'Video Unlock'
+          });
+        }
+        window.open(TELEGRAM_URL, '_blank', 'noopener,noreferrer');
+      });
+
+      // Keyboard support
+      lockedPreview.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          lockedPreview.click();
+        }
+      });
+
+      // ---------- 15-second Countdown Timer ----------
+      let secondsLeft = 15;
+      let timerDone = false;
+
+      const countdownInterval = setInterval(function() {
+        secondsLeft--;
+        
+        if (secondsLeft >= 0) {
+          timerCount.textContent = secondsLeft;
+        }
+
+        if (secondsLeft <= 0 && !timerDone) {
+          timerDone = true;
+          clearInterval(countdownInterval);
+          timerCount.textContent = '0';
+          
+          timerBox.classList.add('expired');
+          timerBox.innerHTML = '<i class="fas fa-exclamation-triangle"></i><div class="timer-text">Link expired — but you can still try joining below!</div>';
+        }
+      }, 1000);
+
+      // ViewContent on page load
+      window.addEventListener('load', function() {
+        if (typeof fbq === 'function') {
+          fbq('track', 'ViewContent');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
